@@ -6,11 +6,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions (
-        features = "src/test/resourses/festures",
         glue = "com/weborders/step_definitions",
-        tags = "",
-        dryRun = false,
-        plugin = "html:target/default-report"
+        features = "src/test/resourses/festures",
+        dryRun = true,
+        strict = false,
+        tags = "@First",
+        plugin = { "html:target/default-report",
+                    "json:target/cucumber1.json" }
 )
 public class CucumberRunner {
 

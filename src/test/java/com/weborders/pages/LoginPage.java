@@ -8,19 +8,24 @@ import org.openqa.selenium.support.FindBy;
  * @create:
  * @date:
  */
-public class LoginPage extends AbstractPageBase {
-    @FindBy(id="ctl00_MainContent_username")
+public class LoginPage extends BasePage {
+
+    @FindBy(id = "ctl00_MainContent_username")
     private WebElement userName;
-    @FindBy(id="ctl00_MainContent_password")
+
+    @FindBy(id = "ctl00_MainContent_password")
     private WebElement password;
-    public void login(){
+
+    public void login() {
         String usernameValue = ConfigurationReader.getProperty("username");
         String passwordValue = ConfigurationReader.getProperty("password");
         userName.sendKeys(usernameValue);
         password.sendKeys(passwordValue, Keys.ENTER);
     }
-    public void login(String usernameValue,String passwordValue){
+
+    public void login(String usernameValue, String passwordValue) {
         userName.sendKeys(usernameValue);
-        password.sendKeys(passwordValue,Keys.ENTER);
+        password.sendKeys(passwordValue, Keys.ENTER);
     }
+
 }
